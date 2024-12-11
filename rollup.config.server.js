@@ -1,6 +1,6 @@
-import commonjs from 'rollup-plugin-commonjs';
-import json from 'rollup-plugin-json';
-import babel from 'rollup-plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
+import babel from '@rollup/plugin-babel';
 
 export default {
 	input: './src/server.js',
@@ -22,6 +22,6 @@ export default {
 		'body-parser',
 		'color-string',
 		'moment'
-	],
-	preferConst: true
+	]
+	//preferConst: true
 };

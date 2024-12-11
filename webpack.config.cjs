@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 
 module.exports = (env, argv) => ({
 	entry: {
@@ -64,7 +65,10 @@ module.exports = (env, argv) => ({
 		]
 	},
 	plugins: [
-		new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+		new webpack.IgnorePlugin({resourceRegExp: /^\.\/locale$/, contextRegExp: /moment$/}),
+		new webpack.NormalModuleReplacementPlugin(/node:/, (resource) => {
+	            resource.request = resource.request.replace(/^node:/, "");
+	    	}),
 		new BundleAnalyzerPlugin({
 			analyzerMode: 'disabled',
 			generateStatsFile: true,
@@ -80,7 +84,8 @@ module.exports = (env, argv) => ({
 			title: 'Calendar',
 			template: './src/index.ejs',
 			xhtml: true
-		})
+		}),
+		new NodePolyfillPlugin()
 	],
 	devtool: 'source-map',
 	devServer: {

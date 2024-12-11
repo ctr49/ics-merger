@@ -5,8 +5,8 @@ import Color from 'color';
 
 import $ from 'jquery';
 import 'fullcalendar';
-import 'fullcalendar/dist/gcal.js';
-import 'fullcalendar/dist/fullcalendar.css';
+//import 'fullcalendar/dist/gcal.js';
+//import 'fullcalendar/dist/fullcalendar.css';
 import uniqueId from 'lodash/uniqueId';
 
 import CalendarEvent from './CalendarEvent.js';

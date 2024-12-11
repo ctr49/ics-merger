@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Color from "color";
 import striptags from "striptags";
-import linkifyHtml from 'linkifyjs/html';
+import linkifyHtml from 'linkify-html';
 
 import MapPin from "react-feather/dist/icons/map-pin.js";
 import User from "react-feather/dist/icons/user.js";
